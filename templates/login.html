@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Pizza Mania</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="{{MEDIA_ROOT}}style.css" rel="stylesheet" type="text/css" media="screen" />
+
+{%block head%}{%endblock%}
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="logo">
+		<h1>Pizza Mania</h1>
+		</div><hr />
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="#" class="first">Pizzas</a></li>
+				<li class="current_page_item"><a href="#">Types of coupons</a></li>
+				
+				<li> <a href ="#"> All previous orders </a> </li>
+				{% if user.is_authenticated%}
+				<li><a href="#">My Previous Orders</a></li>
+				{%endif%}				
+			</ul>
+		</div>
+		
+	</div>
+	<div id="page"><div class="inner_copy"><div class="inner_copy"></div></div>
+		{%block content%}
+		<div id="content">
+			<div id="banner"><img src="{{MEDIA_ROOT}}images/pizza.jpg" style="height:199px;width:580px;" alt="" /></div>
+			<div class="post">
+				<h2 class="title"><a href="#">Welcome to PizzaMania</a></h2>
+				<p class="meta"> <!-- display current date and time here--></a></p>
+				<div class="entry">
+					<p>This is a online pizza sharing portal. Its intended for internal use only. The creators of this sit do not take responsibility for any misunderstandings among the users. Have a nice day!!</p>
+					
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">Dominos Pizza</a></h2>
+				<p class="meta"></p>
+				<div class="entry">
+					<p>One of the most favourite preferred pizza distributors among insti junta. Located on the 100 feet raod of taramani, its a really worth for money!!</p>
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title">Pizza Hut</h2>
+				<p class="meta"></p>
+				<div class="entry">
+					<p>This is one of the lesser preferred spots. But, a real hangout place if you want to take your non - male counter parts out on a date ;) </p>
+				</div>
+			</div>
+		{%endblock%}
+		</div>
+		
+		<div id="sidebar">
+			
+			<ul>
+			{%block login%}
+				<li>
+					<h2>Login</h2>
+					<p><form action="" method="post">
+         {% csrf_token %}
+         <table>
+            {{ form.as_table }}
+          <!-- submit button -->
+      
+            <tr><td>
+            <div id="submit" style="text-align:center;">
+               <div class="button2">
+                  <a href="#">
+                      <input type="submit" value="Login" />
+                  </a>
+                  <span></span>
+                <br></br>
+               </div>
+            </div> 
+            </td>
+            <td>
+                <a href="/autometer/register/">register</a>            </td></tr>
+         </table>
+
+       </form></p>
+				</li>
+	  {%endblock%}
+	  {%block markers%}			
+				{%if user.is_authenticated%}
+				<li>
+					<h2>Pellenteque ornare </h2>
+					<ul>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Eget tempor eget nonummy</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Eget tempor eget nonummy</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+					</ul>
+				</li>
+				{%endif%}
+	{%endblock%}			
+			</ul>
+		</div>
+		<div style="clear:both">&nbsp;</div>
+	</div>
+	<div id="footer-bgcontent">
+		
+	</div>
+</div>
+</body>
+</html>
